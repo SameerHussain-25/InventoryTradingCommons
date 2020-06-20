@@ -95,6 +95,23 @@ final public class Values {
         final public static String tableCodeName = "15606875";
 
 
+        final public static String colProductId = "product_id";
+        final public static String colProdCatId = "prod_cat_id";
+        final public static String colProdName = "prod_name";
+        final public static String colProdBrandName = "prod_brand_name";
+        final public static String colOpeningRate = "opening_rate";
+        final public static String colBuyingRate = "buying_rate";
+        final public static String colSaleRate = "sale_rate";
+        final public static String colOpeningOnHandQty = "opening_onhand_qty";
+        final public static String colProdCreateDate = "prod_create_date";
+        final public static String colLastProdUpdate = "last_prod_update";
+        final public static String colUpdateBy = "update_by";
+        final public static String colUnitId = "unit_id";
+        final public static String colRemarks = "remarks";
+
+
+
+
         final public static String searchByProductId = "Product ID";
         final public static String searchByProdCatName = "Product Category";
         final public static String searchByProdName = "Product Name";
@@ -327,10 +344,161 @@ final public class Values {
                         "  CONSTRAINT `determination_ibfk_1` FOREIGN KEY (`transection_id`) REFERENCES `transection` (`transection_id`)," +
                         "  CONSTRAINT `determination_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)" +
                         ") ENGINE=InnoDB DEFAULT CHARSET=latin1;",
-
-
         };
-    }
+    }   //** END getDatabaseSturctureQueries()
+
+
+    final public static String[] getSQLiteDatabaseSturctureQueries() {
+        return new String[]{
+
+                /// CITY TABLE
+                "CREATE TABLE city (" +
+                        " city_id INTEGER PRIMARY KEY," +
+                        " city_name TEST," +
+                        " )",
+
+                /// GODOWN
+                "CREATE TABLE godown (" +
+                        " godown_id INTEGER PRIMARY KEY," +
+                        " godown_name TEST," +
+                        " )",
+
+                /// UNIT
+                "CREATE TABLE unit (" +
+                        " unit_id INTEGER PRIMARY KEY," +
+                        " unit_name TEST," +
+                        " )",
+
+
+                /// CUSTOMER
+                "CREATE TABLE customers (" +
+                        " customer_id INTEGER PRIMARY KEY," +
+                        " cust_name TEST NOT NULL," +
+                        " firm_name TEST NOT NULL," +
+                        " account_title TEST," +
+                        " account_number TEST," +
+                        " customer_type TEST," +
+                        " city_id INTEGER," +
+                        " address TEST," +
+                        " opening_balance FLOAT " +
+                        " )",
+
+
+                /// CONTACT TABLE
+                "CREATE TABLE contact (" +
+                        " contact_id INTEGER PRIMARY KEY," +
+                        " customer_id INTEGER," +
+                        " contact_name TEST," +
+                        " phone_no TEST," +
+                        " email_address TEST," +
+                        " )",
+
+
+                /// PRODUCT CATEGORY
+                "CREATE TABLE product_category (" +
+                        " prod_cat_id INTEGER PRIMARY KEY," +
+                        " prod_cat_name TEST," +
+                        " remarks TEST," +
+                        " )",
+
+
+                /// PRODUCTS
+                "CREATE TABLE products (" +
+                        " product_id INTEGER PRIMARY KEY," +
+                        " prod_cat_id INTEGER," +
+                        " prod_name TEST," +
+                        " prod_brand_name TEST," +
+                        " opening_rate FLOAT," +
+                        " buying_rate FLOAT," +
+                        " sale_rate FLOAT," +
+                        " opening_onhand_qty FLOAT," +
+                        " prod_create_date DATETIME," +
+                        " last_prod_update DATETIME," +
+                        " update_by TEST," +
+                        " unit_id INTEGER," +
+                        " remarks TEST," +
+                        " )",
+
+
+                /// TRANSECTION
+                "CREATE TABLE transection (" +
+                        " transection_id INTEGER PRIMARY KEY," +
+                        " trans_date DATETIME," +
+                        " customer_id INTEGER," +
+                        " name TEST," +
+                        " from_godown_id INTEGER," +
+                        " to_godown_id INTEGER," +
+                        " voucher_type TEST," +
+                        " payment_type TEST," +
+                        " packing_expence FLOAT," +
+                        " other_expence FLOAT," +
+                        " discount FLOAT," +
+                        " total_amount FLOAT," +
+                        " has_bill_in_hand TINYINT," +
+                        " status TEST," +
+                        " reference_bill_no TEST," +
+                        " transport_name TEST," +
+                        " remarks TEST," +
+                        " confirmed_by TEST," +
+                        " )",
+
+
+                /// PRODUCT TRANSECTION
+                "CREATE TABLE product_transection (" +
+                        " transection_id INTEGER," +
+                        " product_id INTEGER," +
+                        " godown_id INTEGER," +
+                        " quantity FLOAT," +
+                        " unit_price FLOAT," +
+                        " amount FLOAT," +
+                        " )",
+
+
+                /// DETERMINATION
+                "CREATE TABLE determination (" +
+                        " transection_id INTEGER," +
+                        " product_id INTEGER," +
+                        " no_of_pack FLOAT," +
+                        " quantity FLOAT," +
+                        " )"
+        };
+    }//** END getSQLiteDatabaseSturctureQueries()
+
+
+    final public static String[] getSQLiteDropQueries(){
+        return new String[]{
+
+                /// CITY TABLE
+                "DROP TABLE IF EXISTS city;",
+
+                /// GODOWN
+                "DROP TABLE IF EXISTS godown;",
+
+                /// UNIT
+                "DROP TABLE IF EXISTS unit;",
+
+                /// CUSTOMER
+                "DROP TABLE IF EXISTS customers;",
+
+                /// CONTACT TABLE
+                "DROP TABLE IF EXISTS contact;",
+
+                /// PRODUCT CATEGORY
+                "DROP TABLE IF EXISTS product_category;",
+
+                /// PRODUCTS
+                "DROP TABLE IF EXISTS products;",
+
+                /// TRANSECTION
+                "DROP TABLE IF EXISTS transection;",
+
+                /// PRODUCT TRANSECTION
+                "DROP TABLE IF EXISTS product_transection;",
+
+                /// DETERMINATION
+                "DROP TABLE IF EXISTS determination;",
+        };
+    }   //** END getDatabaseSturctureQueries()
 
 
 }

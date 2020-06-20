@@ -4,8 +4,6 @@ import BeanClass.*;
 import javax.swing.*;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -267,6 +265,8 @@ public interface DatabaseInterface extends Remote {
     ////////////////********************* SINGLE VALUE
     ////////////////********************* GET PRODUCT NAME BY PRODUCT ID
     public String getProductNameByProductId(Integer productId) throws SQLException, RemoteException;
+    ////////////////********************* GET PRODUCT ON HAND OPENING QTY BY PRODUCT ID
+    public int getProductOpeningQtyByProductId(Integer productId) throws SQLException, RemoteException;
     ////////////////********************* GET PRODUCT UNIT NAME BY PRODUCT ID
     public String getProductUnitNameByProductId(Integer productId) throws SQLException, RemoteException;
     ////////////////********************* GET PRODUCT BUYING RATE BY PRODUCT ID
