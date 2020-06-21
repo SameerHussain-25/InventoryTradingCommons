@@ -2,26 +2,31 @@ package BeanClass;
 
 import java.io.Serializable;
 
-public class Users implements Serializable {
+public class UsersBean implements Serializable {
 
     private Integer userId;
     private String userName;
     private String password;
     private String privilege;
 
-    public Users() {}
+    public UsersBean() {}
 
-    public Users(Integer userId, String userName, String password, String privilege) {
+    public UsersBean(Integer userId, String userName, String password, String privilege) {
         this.userId = userId;
         this.userName = userName;
         this.password = password;
         this.privilege = privilege;
     }
 
-    public Users(String userName, String password, String privilege) {
+    public UsersBean(String userName, String password, String privilege) {
         this.userName = userName;
         this.password = password;
         this.privilege = privilege;
+    }
+
+    public UsersBean(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
 
     public Integer getUserId() {

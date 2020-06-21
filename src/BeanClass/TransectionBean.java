@@ -8,6 +8,7 @@ public class TransectionBean implements Serializable {
     private Integer transectionId;
     private Timestamp transDate;
     private Integer customerId;
+    private Integer userId;
     private String name;
     private Integer fromGodownId;
     private Integer toGodownId;
@@ -50,6 +51,15 @@ public class TransectionBean implements Serializable {
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
+    }
+
+    public Integer getUserId() {
+        if(userId != null) return userId;
+        return 0;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getName() {

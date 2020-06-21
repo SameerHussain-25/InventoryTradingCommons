@@ -36,4 +36,13 @@ public class Encode {
     }
 
 
+    public static String usersPrivileges(String privileges){
+        if(privileges.equals(Values.User.decodePrivilgeAdmin)) return Values.User.privilgeAdmin;
+        else if(privileges.equals(Values.User.decodePrivilgeTechnicalUser)) return Values.User.privilgeTechnicalUser;
+        else if(privileges.equals(Values.User.decodePrivilgeComputerOperator)) return Values.User.privilgeComputerOperator;
+        else if(privileges.equals(Values.User.decodePrivilgeOtherUser)) return Values.User.privilgeOtherUser;
+        return privileges;
+    }
+
+
 }

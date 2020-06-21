@@ -6,6 +6,7 @@ final public class Values {
 
     final public static Hashtable getTableMap(){
         Hashtable<String, String> hashtable = new Hashtable<>();
+        hashtable.put(User.tableName, User.tableCodeName);
         hashtable.put(City.tableName, City.tableCodeName);
         hashtable.put(Godown.tableName, Godown.tableCodeName);
         hashtable.put(Unit.tableName, Unit.tableCodeName);
@@ -19,8 +20,9 @@ final public class Values {
         return hashtable;
     }
 
-
+    //// DATABASE TABLE NAMES
     final public static String[] tableNames = {
+            User.tableName,
             City.tableName,
             Godown.tableName,
             Unit.tableName,
@@ -33,11 +35,30 @@ final public class Values {
             Determination.tableName
     };
 
+    //// USER TABLE
+    final public static class User {
+        final public static String tableName = "users";
+        final public static String tableCodeName = "9767897875";
+
+        ////**** PRIVILEGES
+        final public static String privilgeAdmin = "AD";                                    // ADMIN
+        final public static String privilgeTechnicalUser = "TD";                            // TECHNICAL USER
+        final public static String privilgeComputerOperator = "CO";                         // COMPUTER OPERATOR
+        final public static String privilgeOtherUser = "OU";                                // OTHER USER
+
+        final public static String decodePrivilgeAdmin = "Admin";                           // ADMIN
+        final public static String decodePrivilgeTechnicalUser = "Technical User";          // TECHNICAL USER
+        final public static String decodePrivilgeComputerOperator = "Computer Operator";    // COMPUTER OPERATOR
+        final public static String decodePrivilgeOtherUser = "Other User";                  // OTHER USER
+    }
+
+    //// CITY TABLE
     final public static class City {
         final public static String tableName = "city";
         final public static String tableCodeName = "976786875";
     }
 
+    //// GODOWN TABLE
     final public static class Godown{
         final public static String tableName = "godown";
         final public static String tableCodeName = "906786875";
@@ -46,12 +67,14 @@ final public class Values {
         final public static String searchByGodownName = "Godown Name";
     }
 
+    //// UNIT TABLE
     final public static class Unit {
         final public static String tableName = "unit";
         final public static String tableCodeName = "986716875";
 
     }
 
+    //// CUSTOMER TABLE
     final public static class Customer{
         final public static String tableName = "customers";
         final public static String tableCodeName = "306716875";
@@ -70,19 +93,19 @@ final public class Values {
         final public static String searchTypesCustCity = "City";
     }
 
+    //// CONTACT TABLE
     final public static class Contact{
         final public static String tableName = "contact";
         final public static String tableCodeName = "406716870";
-
 
         final public static String SupplierTitle = "Supplier Contact";
         final public static String CustomerTitle = "Customer Contact";
     }
 
+    //// PRODUCT CATEGORY TABLE
     final public static class ProductCategory{
         final public static String tableName = "product_category";
         final public static String tableCodeName = "706716875";
-
 
         final public static String[] searchTypes = {"All", "Category Id", "Category Name"};
         final public static String searchTypesAll = "All";
@@ -90,10 +113,10 @@ final public class Values {
         final public static String searchTypesCatName = "Category Name";
     }
 
+    //// PRODUCT TABLE
     final public static class Products{
         final public static String tableName = "products";
         final public static String tableCodeName = "15606875";
-
 
         final public static String colProductId = "product_id";
         final public static String colProdCatId = "prod_cat_id";
@@ -109,9 +132,6 @@ final public class Values {
         final public static String colUnitId = "unit_id";
         final public static String colRemarks = "remarks";
 
-
-
-
         final public static String searchByProductId = "Product ID";
         final public static String searchByProdCatName = "Product Category";
         final public static String searchByProdName = "Product Name";
@@ -119,10 +139,10 @@ final public class Values {
         final public static String searchByProdPrice = "Price";
     }
 
+    //// TRANSECTION TABLE
     final public static class Transection{
         final public static String tableName = "transection";
         final public static String tableCodeName = "946716123";
-
 
         ////**** VOUCHER TYPE
         final public static String decodeVoucherTypeRegular = "Regular";                    // REGULAR
@@ -177,23 +197,35 @@ final public class Values {
         final public static String searchByPaymentType = "Payment Type";            // PAYMENT TYPE
     }
 
+    //// PRODUCT TRANSECTION TABLE
     final public static class ProductTransection{
         final public static String tableName = "product_transection";
         final public static String tableCodeName = "67124875";
-
     }
 
+    //// DETERMINATION TABLE
     final public static class Determination{
         final public static String tableName = "determination";
         final public static String tableCodeName = "961875";
     }
 
-
+    //// GET DATABASE STURCTURE QURIES
     final public static String[] getDatabaseSturctureQueries(String dbName){
         return new String[]{
+
                 /// CREATE DATABASE
                 "CREATE DATABASE `"+dbName+"`;",
                 "USE `"+dbName+"`;",
+
+                /// USER
+                "DROP TABLE IF EXISTS `users`;",
+                "CREATE TABLE `users` (" +
+                        "  `user_id` int(11) NOT NULL AUTO_INCREMENT," +
+                        "  `user_name` varchar(25) NOT NULL," +
+                        "  `password` varchar(12) NOT NULL," +
+                        "  `privilege` varchar(2) NOT NULL," +
+                        "  PRIMARY KEY (`user_id`,`user_name`)" +
+                        ") ENGINE=InnoDB DEFAULT CHARSET=latin1;",
 
                 /// CITY TABLE
                 "DROP TABLE IF EXISTS `city`;",
@@ -219,7 +251,6 @@ final public class Values {
                         "  PRIMARY KEY (`unit_id`)" +
                         ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;",
 
-
                 /// CUSTOMER
                 "DROP TABLE IF EXISTS `customers`;",
                 "CREATE TABLE `customers` (" +
@@ -238,7 +269,6 @@ final public class Values {
                         "  CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`)" +
                         ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;",
 
-
                 /// CONTACT TABLE
                 "DROP TABLE IF EXISTS `contact`;",
                 "CREATE TABLE `contact` (" +
@@ -252,7 +282,6 @@ final public class Values {
                         "  CONSTRAINT `contact_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`)" +
                         ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;",
 
-
                 /// PRODUCT CATEGORY
                 "DROP TABLE IF EXISTS `product_category`;",
                 "CREATE TABLE `product_category` (" +
@@ -261,7 +290,6 @@ final public class Values {
                         "  `remarks` varchar(100) DEFAULT NULL," +
                         "  PRIMARY KEY (`prod_cat_id`)" +
                         ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;",
-
 
                 /// PRODUCTS
                 "DROP TABLE IF EXISTS `products`;",
@@ -286,13 +314,13 @@ final public class Values {
                         "  CONSTRAINT `products_ibfk_2` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`unit_id`)" +
                         ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;",
 
-
                 /// TRANSECTION
                 "DROP TABLE IF EXISTS `transection`;",
                 "CREATE TABLE `transection` (" +
                         "  `transection_id` int(11) NOT NULL AUTO_INCREMENT," +
                         "  `trans_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP," +
                         "  `customer_id` int(11) DEFAULT NULL," +
+                        "  `user_id` int(11) DEFAULT NULL,"+
                         "  `name` varchar(30) DEFAULT NULL," +
                         "  `from_godown_id` int(11) DEFAULT NULL," +
                         "  `to_godown_id` int(11) DEFAULT NULL," +
@@ -310,9 +338,9 @@ final public class Values {
                         "  `confirmed_by` varchar(30) DEFAULT NULL," +
                         "  PRIMARY KEY (`transection_id`)," +
                         "  KEY `customer_id` (`customer_id`)," +
-                        "  CONSTRAINT `transection_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`)" +
+                        "  CONSTRAINT `transection_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`)," +
+                        "  CONSTRAINT `transection_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)" +
                         ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;",
-
 
                 /// PRODUCT TRANSECTION
                 "DROP TABLE IF EXISTS `product_transection`;",
@@ -331,7 +359,6 @@ final public class Values {
                         "  CONSTRAINT `product_transection_ibfk_5` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)" +
                         ") ENGINE=InnoDB DEFAULT CHARSET=latin1;",
 
-
                 /// DETERMINATION
                 "DROP TABLE IF EXISTS `determination`;",
                 "CREATE TABLE `determination` (" +
@@ -343,13 +370,21 @@ final public class Values {
                         "  KEY `product_id` (`product_id`)," +
                         "  CONSTRAINT `determination_ibfk_1` FOREIGN KEY (`transection_id`) REFERENCES `transection` (`transection_id`)," +
                         "  CONSTRAINT `determination_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)" +
-                        ") ENGINE=InnoDB DEFAULT CHARSET=latin1;",
+                        ") ENGINE=InnoDB DEFAULT CHARSET=latin1;"
         };
     }   //** END getDatabaseSturctureQueries()
 
-
+    //// GET DATABASE STRUCTURE QURIES FOR SQLITE
     final public static String[] getSQLiteDatabaseSturctureQueries() {
         return new String[]{
+
+                /// USER
+                "CREATE TABLE users (" +
+                        "  user_id INTEGER PRIMARY KEY," +
+                        "  user_name TEST," +
+                        "  password TEST," +
+                        "  privilege TEST," +
+                        "  )",
 
                 /// CITY TABLE
                 "CREATE TABLE city (" +
@@ -369,7 +404,6 @@ final public class Values {
                         " unit_name TEST," +
                         " )",
 
-
                 /// CUSTOMER
                 "CREATE TABLE customers (" +
                         " customer_id INTEGER PRIMARY KEY," +
@@ -383,7 +417,6 @@ final public class Values {
                         " opening_balance FLOAT " +
                         " )",
 
-
                 /// CONTACT TABLE
                 "CREATE TABLE contact (" +
                         " contact_id INTEGER PRIMARY KEY," +
@@ -393,14 +426,12 @@ final public class Values {
                         " email_address TEST," +
                         " )",
 
-
                 /// PRODUCT CATEGORY
                 "CREATE TABLE product_category (" +
                         " prod_cat_id INTEGER PRIMARY KEY," +
                         " prod_cat_name TEST," +
                         " remarks TEST," +
                         " )",
-
 
                 /// PRODUCTS
                 "CREATE TABLE products (" +
@@ -419,12 +450,12 @@ final public class Values {
                         " remarks TEST," +
                         " )",
 
-
                 /// TRANSECTION
                 "CREATE TABLE transection (" +
                         " transection_id INTEGER PRIMARY KEY," +
                         " trans_date DATETIME," +
                         " customer_id INTEGER," +
+                        " user_id INTEGER,"+
                         " name TEST," +
                         " from_godown_id INTEGER," +
                         " to_godown_id INTEGER," +
@@ -442,7 +473,6 @@ final public class Values {
                         " confirmed_by TEST," +
                         " )",
 
-
                 /// PRODUCT TRANSECTION
                 "CREATE TABLE product_transection (" +
                         " transection_id INTEGER," +
@@ -452,7 +482,6 @@ final public class Values {
                         " unit_price FLOAT," +
                         " amount FLOAT," +
                         " )",
-
 
                 /// DETERMINATION
                 "CREATE TABLE determination (" +
@@ -464,9 +493,12 @@ final public class Values {
         };
     }//** END getSQLiteDatabaseSturctureQueries()
 
-
+    //// DATABASE QURIES FOR DROP TABLES SQLITE
     final public static String[] getSQLiteDropQueries(){
         return new String[]{
+
+                /// USER
+                "DROP TABLE IF EXISTS `users`;",
 
                 /// CITY TABLE
                 "DROP TABLE IF EXISTS city;",
@@ -499,6 +531,5 @@ final public class Values {
                 "DROP TABLE IF EXISTS determination;",
         };
     }   //** END getDatabaseSturctureQueries()
-
 
 }

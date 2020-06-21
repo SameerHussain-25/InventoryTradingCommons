@@ -19,6 +19,29 @@ public interface DatabaseInterface extends Remote {
     /////////////////********************* IMAGES ********************************//////////////////
 
 
+
+
+    /////////////////********************* USERS TABLE ********************************//////////////////
+    ////////////////********************* INSERT
+    public int insertUsers(UsersBean bean)throws SQLException, RemoteException;
+    ////////////////********************* UPDATE
+    public int updateUsers(UsersBean bean)throws SQLException, RemoteException;
+    ////////////////********************* DELETE
+    public int deleteUsers(Integer userId)throws SQLException, RemoteException;
+    ////////////////********************* GET ALL
+    public ArrayList getUsers()throws SQLException, RemoteException;
+
+    ////////////////********************* SINGLE VALUE
+    ////////////////********************* GET USER ID
+    public int getUserId(String userName, String password)throws SQLException, RemoteException;
+    ////////////////********************* IS USER VALID
+    public boolean isUserValid(String userName, String password)throws SQLException, RemoteException;
+    /////////////////********************* USERS TABLE ********************************//////////////////
+
+
+
+
+
     /////////////////********************* GODOWN TABLE ********************************//////////////////
     ////////////////********************* INSERT
     public int insertGodown(String godownName)throws SQLException, RemoteException;

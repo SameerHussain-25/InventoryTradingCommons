@@ -35,4 +35,13 @@ public class Decode {
     }
 
 
+    public static String usersPrivileges(String privileges){
+        if(privileges.equals(Values.User.privilgeAdmin)) return Values.User.decodePrivilgeAdmin;
+        else if(privileges.equals(Values.User.privilgeTechnicalUser)) return Values.User.decodePrivilgeTechnicalUser;
+        else if(privileges.equals(Values.User.privilgeComputerOperator)) return Values.User.decodePrivilgeComputerOperator;
+        else if(privileges.equals(Values.User.privilgeOtherUser)) return Values.User.decodePrivilgeOtherUser;
+        return privileges;
+    }
+
+
 }
