@@ -18,6 +18,8 @@ public class TransectionBean implements Serializable {
     private Float otherExpence;
     private Float discount;
     private Float totalAmount;
+    private Float receivableAmount;
+    private Float pendingAmount;
     private Boolean hasBillInHand;
     private String status;
     private String referenceBillNo;
@@ -141,6 +143,24 @@ public class TransectionBean implements Serializable {
 
     public void setTotalAmount(Float totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public Float getReceivableAmount() {
+        if(receivableAmount != null) return receivableAmount;
+        return Float.valueOf(0);
+    }
+
+    public void setReceivableAmount(Float receivableAmount) {
+        this.receivableAmount = receivableAmount;
+    }
+
+    public Float getPendingAmount() {
+        if(pendingAmount != null) return pendingAmount;
+        return Float.valueOf(0);
+    }
+
+    public void setPendingAmount(Float pendingAmount) {
+        this.pendingAmount = pendingAmount;
     }
 
     public Boolean getHasBillInHand() {

@@ -1,8 +1,22 @@
 package Customs;
 
+import java.text.SimpleDateFormat;
 import java.util.Hashtable;
 
 final public class Values {
+
+    final public String databaseName = "inventory.db";
+
+
+    public static String dateFormatSql(Object object){
+        if(object == null) return "";
+        return new SimpleDateFormat("dd/MM/yyyy hh:mm:ss aa").format(object);
+    }
+
+    public static String dateFormatUtil(java.util.Date date){
+        if(date == null) return "";
+        return new SimpleDateFormat("dd/MM/yyyy hh:mm:ss aa").format(date);
+    }
 
     final public static Hashtable getTableMap(){
         Hashtable<String, String> hashtable = new Hashtable<>();
@@ -40,6 +54,12 @@ final public class Values {
         final public static String tableName = "users";
         final public static String tableCodeName = "9767897875";
 
+        ////**** COLUMN NAME
+        final public static String col1_user_id = "user_id";
+        final public static String col2_user_name = "user_name";
+        final public static String col3_password = "password";
+        final public static String col4_privilege = "privilege";
+
         ////**** PRIVILEGES
         final public static String privilgeAdmin = "AD";                                    // ADMIN
         final public static String privilgeTechnicalUser = "TD";                            // TECHNICAL USER
@@ -56,12 +76,20 @@ final public class Values {
     final public static class City {
         final public static String tableName = "city";
         final public static String tableCodeName = "976786875";
+
+        ////**** COLUMN NAME
+        final public static String col1_city_id = "city_id";
+        final public static String col2_city_name = "city_name";
     }
 
     //// GODOWN TABLE
     final public static class Godown{
         final public static String tableName = "godown";
         final public static String tableCodeName = "906786875";
+
+        ////**** COLUMN NAME
+        final public static String col1_godown_id= "godown_id";
+        final public static String col2_godown_name= "godown_name";
 
         final public static String searchByGodownId = "Godown ID";
         final public static String searchByGodownName = "Godown Name";
@@ -72,12 +100,26 @@ final public class Values {
         final public static String tableName = "unit";
         final public static String tableCodeName = "986716875";
 
+        ////**** COLUMN NAME
+        final public static String col1_unit_id= "unit_id";
+        final public static String col2_unit_name= "unit_name";
     }
 
     //// CUSTOMER TABLE
     final public static class Customer{
         final public static String tableName = "customers";
         final public static String tableCodeName = "306716875";
+
+        ////**** COLUMN NAME
+        final public static String col1_customer_id = "customer_id";
+        final public static String col2_cust_name = "cust_name";
+        final public static String col3_firm_name = "firm_name";
+        final public static String col4_account_title = "account_title";
+        final public static String col5_account_number = "account_number";
+        final public static String col6_customer_type = "customer_type";
+        final public static String col7_city_id = "city_id";
+        final public static String col8_address = "address";
+        final public static String col9_opening_balance = "opening_balance";
 
         final public static String SupplierTitle = "Supplier Customer";
         final public static String CustomerTitle = "Customer Customer";
@@ -98,6 +140,13 @@ final public class Values {
         final public static String tableName = "contact";
         final public static String tableCodeName = "406716870";
 
+        ////**** COLUMN NAME
+        final public static String col1_contact_id = "contact_id";
+        final public static String col2_customer_id = "customer_id";
+        final public static String col3_contact_name = "contact_name";
+        final public static String col4_phone_no = "phone_no";
+        final public static String col5_email_address = "email_address";
+
         final public static String SupplierTitle = "Supplier Contact";
         final public static String CustomerTitle = "Customer Contact";
     }
@@ -106,6 +155,11 @@ final public class Values {
     final public static class ProductCategory{
         final public static String tableName = "product_category";
         final public static String tableCodeName = "706716875";
+
+        ////**** COLUMN NAME
+        final public static String col1_prod_cat_id = "prod_cat_id";
+        final public static String col2_prod_cat_name = "prod_cat_name";
+        final public static String col3_remarks = "remarks";
 
         final public static String[] searchTypes = {"All", "Category Id", "Category Name"};
         final public static String searchTypesAll = "All";
@@ -118,19 +172,21 @@ final public class Values {
         final public static String tableName = "products";
         final public static String tableCodeName = "15606875";
 
-        final public static String colProductId = "product_id";
-        final public static String colProdCatId = "prod_cat_id";
-        final public static String colProdName = "prod_name";
-        final public static String colProdBrandName = "prod_brand_name";
-        final public static String colOpeningRate = "opening_rate";
-        final public static String colBuyingRate = "buying_rate";
-        final public static String colSaleRate = "sale_rate";
-        final public static String colOpeningOnHandQty = "opening_onhand_qty";
-        final public static String colProdCreateDate = "prod_create_date";
-        final public static String colLastProdUpdate = "last_prod_update";
-        final public static String colUpdateBy = "update_by";
-        final public static String colUnitId = "unit_id";
-        final public static String colRemarks = "remarks";
+        ////**** COLUMN NAME
+        final public static String col1_product_id = "product_id";
+        final public static String col2_prod_cat_id = "prod_cat_id";
+        final public static String col3_prod_name = "prod_name";
+        final public static String col4_prod_brand_name = "prod_brand_name";
+        final public static String col5_opening_rate = "opening_rate";
+        final public static String col6_buying_rate = "buying_rate";
+        final public static String col7_sale_rate = "sale_rate";
+        final public static String col8_opening_onhand_qty = "opening_onhand_qty";
+        final public static String col9_prod_create_date = "prod_create_date";
+        final public static String col10_last_prod_update = "last_prod_update";
+        final public static String col11_update_by = "update_by";
+        final public static String col12_unit_id = "unit_id";
+        final public static String col13_remarks = "remarks";
+
 
         final public static String searchByProductId = "Product ID";
         final public static String searchByProdCatName = "Product Category";
@@ -143,6 +199,30 @@ final public class Values {
     final public static class Transection{
         final public static String tableName = "transection";
         final public static String tableCodeName = "946716123";
+
+        ////**** COLUMN NAME
+        final public static String col1_transection_id = "transection_id";
+        final public static String col2_trans_date = "trans_date";
+        final public static String col3_customer_id = "customer_id";
+        final public static String col4_user_id = "user_id";
+        final public static String col5_name = "name";
+        final public static String col6_from_godown_id = "from_godown_id";
+        final public static String col7_to_godown_id = "to_godown_id";
+        final public static String col8_voucher_type = "voucher_type";
+        final public static String col9_payment_type = "payment_type";
+        final public static String col10_packing_expence = "packing_expence";
+        final public static String col11_other_expence = "other_expence";
+        final public static String col12_discount = "discount";
+        final public static String col13_total_amount = "total_amount";
+        final public static String col13_receivable_amount = "receivable_amount";
+        final public static String col13_pending_amount = "pending_amount";
+        final public static String col14_has_bill_in_hand = "has_bill_in_hand";
+        final public static String col15_status= "status";
+        final public static String col16_reference_bill_no= "reference_bill_no";
+        final public static String col17_transport_name = "transport_name";
+        final public static String col18_remarks = "remarks";
+        final public static String col19_confirmed_by = "confirmed_by";
+
 
         ////**** VOUCHER TYPE
         final public static String decodeVoucherTypeRegular = "Regular";                    // REGULAR
@@ -201,12 +281,27 @@ final public class Values {
     final public static class ProductTransection{
         final public static String tableName = "product_transection";
         final public static String tableCodeName = "67124875";
+
+        ////**** COLUMN NAME
+        final public static String col1_transection_id = "transection_id";
+        final public static String col2_product_id = "product_id";
+        final public static String col3_godown_id = "godown_id";
+        final public static String col4_quantity = "quantity";
+        final public static String col5_unit_price = "unit_price";
+        final public static String col6_amount = "amount";
     }
 
     //// DETERMINATION TABLE
     final public static class Determination{
         final public static String tableName = "determination";
         final public static String tableCodeName = "961875";
+
+        ////**** COLUMN NAME
+        final public static String col1_transection_id = "transection_id";
+        final public static String col2_product_id = "product_id";
+        final public static String col3_no_of_pack = "no_of_pack";
+        final public static String col4_quantity = "quantity";
+
     }
 
     //// GET DATABASE STURCTURE QURIES
@@ -321,7 +416,7 @@ final public class Values {
                         "  `trans_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP," +
                         "  `customer_id` int(11) DEFAULT NULL," +
                         "  `user_id` int(11) DEFAULT NULL,"+
-                        "  `name` varchar(30) DEFAULT NULL," +
+                        "  `name` varchar(50) DEFAULT NULL," +
                         "  `from_godown_id` int(11) DEFAULT NULL," +
                         "  `to_godown_id` int(11) DEFAULT NULL," +
                         "  `voucher_type` varchar(3) NOT NULL," +
@@ -330,11 +425,13 @@ final public class Values {
                         "  `other_expence` float DEFAULT NULL," +
                         "  `discount` float DEFAULT NULL," +
                         "  `total_amount` float DEFAULT NULL," +
+                        "  `receivable_amount` float DEFAULT NULL," +
+                        "  `pending_amount` float DEFAULT NULL," +
                         "  `has_bill_in_hand` tinyint(1) DEFAULT NULL," +
                         "  `status` varchar(1) NOT NULL," +
                         "  `reference_bill_no` varchar(30) DEFAULT NULL," +
                         "  `transport_name` varchar(30) DEFAULT NULL," +
-                        "  `remarks` varchar(100) DEFAULT NULL," +
+                        "  `remarks` varchar(1000) DEFAULT NULL," +
                         "  `confirmed_by` varchar(30) DEFAULT NULL," +
                         "  PRIMARY KEY (`transection_id`)," +
                         "  KEY `customer_id` (`customer_id`)," +
@@ -465,6 +562,8 @@ final public class Values {
                         " other_expence FLOAT," +
                         " discount FLOAT," +
                         " total_amount FLOAT," +
+                        " receivable_amount FLOAT," +
+                        " pending_amount FLOAT," +
                         " has_bill_in_hand TINYINT," +
                         " status TEST," +
                         " reference_bill_no TEST," +
@@ -498,7 +597,7 @@ final public class Values {
         return new String[]{
 
                 /// USER
-                "DROP TABLE IF EXISTS `users`;",
+                "DROP TABLE IF EXISTS users;",
 
                 /// CITY TABLE
                 "DROP TABLE IF EXISTS city;",

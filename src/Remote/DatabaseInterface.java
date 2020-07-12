@@ -31,11 +31,21 @@ public interface DatabaseInterface extends Remote {
     ////////////////********************* GET ALL
     public ArrayList getUsers()throws SQLException, RemoteException;
 
+
+    ////////////////********************* BEAN
+    ////////////////********************* GET BEAN BY ID
+    public UsersBean getUsersBean(int userId)throws SQLException, RemoteException;
+
+
     ////////////////********************* SINGLE VALUE
+    ////////////////********************* GET USER NAME BY ID
+    public String getUserNameById(Integer userId)throws SQLException, RemoteException;
     ////////////////********************* GET USER ID
     public int getUserId(String userName, String password)throws SQLException, RemoteException;
     ////////////////********************* IS USER VALID
     public boolean isUserValid(String userName, String password)throws SQLException, RemoteException;
+    ////////////////********************* IS ADMIN USER
+    public boolean isAdminUser(Integer userId)throws SQLException, RemoteException;
     /////////////////********************* USERS TABLE ********************************//////////////////
 
 
@@ -338,7 +348,7 @@ public interface DatabaseInterface extends Remote {
     ////////////////********************* UPDATE TRANSECTION STOCK
     public Integer updateTransectionStock(Integer transectionId, Boolean hasBill)throws SQLException, RemoteException;
     ////////////////********************* UPDATE TRANSECTION SALE
-    public Integer updateTransectionSale(Integer transectionId, String name, Float packingExpence, Float otherExpence, Float dicount, Float totalAmount)throws SQLException, RemoteException;
+    public Integer updateTransectionSale(Integer transectionId, String name, Float packingExpence, Float otherExpence, Float dicount, Float totalAmount, Float receivableAmount, Float pendingAmount, String status,String remarks)throws SQLException, RemoteException;
     ////////////////********************* UPDATE TRANSECTION GODOWN IN
     public Integer updateTransectionGodownIn(Integer transectionId, String status, String transportName, String confirmedBy, String remarks)throws SQLException, RemoteException;
 
@@ -372,6 +382,9 @@ public interface DatabaseInterface extends Remote {
     ////////////////********************* GET TRANSECTION RECEIPT BY STATUS & PAYMENT TYPE & CUSTOMER ID
     public ArrayList getTransectionReceiptByStatusAndPaymentTypeAndCustomerId(String status, String paymentType, Integer customerId) throws SQLException, RemoteException;
 
+
+    ////////////////********************* GET FULL TRANSECTION INQUIRY
+    public ArrayList getFullTransectionInquiry(TransectionBean bean) throws SQLException, RemoteException;
     ////////////////********************* GET TRANSECTION INQUIRY STOCK
     public ArrayList getTransectionInquiryStock(TransectionBean bean, Boolean hasBill) throws SQLException, RemoteException;
     ////////////////********************* GET TRANSECTION INQUIRY SALE
@@ -388,6 +401,12 @@ public interface DatabaseInterface extends Remote {
     ////////////////********************* JOINING
     ////////////////********************* GET TRANSECTION BY CUSTOMER ID & PRODUCT ID
     public ArrayList getTransectionJoiningByCustomerIdAndProductId(Integer customerId, Integer productId) throws SQLException, RemoteException;
+
+
+    ////////////////********************* SINGLE VALUE
+    ////////////////********************* GET SUM TRANSECTION & STATUS TOTAL AMOUNT
+    public      Float getSumOfAmountByVoucherTypeAndStatus(Timestamp transDate, String voucherType, String status)throws SQLException, RemoteException;
+
     ////////////////********************* TRANSECTION METHODS ********************************//////////////////
 
 
