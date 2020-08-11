@@ -205,7 +205,7 @@ final public class Values {
         final public static String col2_trans_date = "trans_date";
         final public static String col3_customer_id = "customer_id";
         final public static String col4_user_id = "user_id";
-        final public static String col5_name = "name";
+        final public static String col5_cust_name = "cust_name";
         final public static String col6_from_godown_id = "from_godown_id";
         final public static String col7_to_godown_id = "to_godown_id";
         final public static String col8_voucher_type = "voucher_type";
@@ -416,7 +416,7 @@ final public class Values {
                         "  `trans_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP," +
                         "  `customer_id` int(11) DEFAULT NULL," +
                         "  `user_id` int(11) DEFAULT NULL,"+
-                        "  `name` varchar(50) DEFAULT NULL," +
+                        "  `cust_name` varchar(100) DEFAULT NULL," +
                         "  `from_godown_id` int(11) DEFAULT NULL," +
                         "  `to_godown_id` int(11) DEFAULT NULL," +
                         "  `voucher_type` varchar(3) NOT NULL," +
@@ -553,7 +553,7 @@ final public class Values {
                         " trans_date DATETIME," +
                         " customer_id INTEGER," +
                         " user_id INTEGER,"+
-                        " name TEST," +
+                        " cust_name TEST," +
                         " from_godown_id INTEGER," +
                         " to_godown_id INTEGER," +
                         " voucher_type TEST," +

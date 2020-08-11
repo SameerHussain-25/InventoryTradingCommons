@@ -9,7 +9,7 @@ public class TransectionBean implements Serializable {
     private Timestamp transDate;
     private Integer customerId;
     private Integer userId;
-    private String name;
+    private String custName;
     private Integer fromGodownId;
     private Integer toGodownId;
     private String voucherType;
@@ -27,6 +27,30 @@ public class TransectionBean implements Serializable {
     private String remarks;
     private String confirmedBy;
 
+    public boolean isEmpty(){
+        if(transectionId == null &
+           transDate == null &
+           customerId  == null &
+           userId == null &
+           custName == null &
+           fromGodownId == null &
+           toGodownId == null &
+           voucherType == null &
+           paymentType == null &
+           packingExpence == null &
+           otherExpence == null &
+           discount == null &
+           totalAmount == null &
+           receivableAmount == null &
+           pendingAmount == null &
+           hasBillInHand == null &
+           status == null &
+           referenceBillNo == null &
+           transportName == null &
+           remarks == null &
+           confirmedBy == null) return true;
+        return false;
+    }
 
     public Integer getTransectionId() {
         if(transectionId != null) return transectionId;
@@ -64,13 +88,13 @@ public class TransectionBean implements Serializable {
         this.userId = userId;
     }
 
-    public String getName() {
-        if(name != null) return name;
+    public String getCustName() {
+        if(custName != null) return custName;
         return "";
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCustName(String custName) {
+        this.custName = custName;
     }
 
     public Integer getFromGodownId() {

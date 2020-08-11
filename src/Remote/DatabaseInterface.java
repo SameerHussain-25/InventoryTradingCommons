@@ -332,6 +332,7 @@ public interface DatabaseInterface extends Remote {
 
     ////////////////********************* TRANSECTION METHODS ********************************//////////////////
     ////////////////********************* INSERT BILL AND GET GENERATED ID
+    ///*** SALE FORM, ADD STOCK, RETURN SALE FORM, RETURN STOCK FORM
     public Integer insertTransectionBillGetId(TransectionBean bean)throws SQLException, RemoteException;
     ////////////////********************* INSERT RECEIPT AND GET GENERATED ID
     public Integer insertTransectionReceiptGetId(TransectionBean bean)throws SQLException, RemoteException;
@@ -343,6 +344,10 @@ public interface DatabaseInterface extends Remote {
     public Integer insertTransectionGodownInAndGetId(TransectionBean bean)throws SQLException, RemoteException;
 
 
+
+    ////////////////********************* UPDATE TRANSECTION BY ID
+    ///*** SALE FORM, ADD STOCK, RETURN SALE FORM, RETURN STOCK FORM
+    public Integer updateTransectionBillById(TransectionBean bean)throws SQLException, RemoteException;
     ////////////////********************* UPDATE RECEIPT
     public Integer updateTransectionReceipt(Integer transectionId, String status, String remarks)throws SQLException, RemoteException;
     ////////////////********************* UPDATE TRANSECTION STOCK
@@ -405,7 +410,7 @@ public interface DatabaseInterface extends Remote {
 
     ////////////////********************* SINGLE VALUE
     ////////////////********************* GET SUM TRANSECTION & STATUS TOTAL AMOUNT
-    public      Float getSumOfAmountByVoucherTypeAndStatus(Timestamp transDate, String voucherType, String status)throws SQLException, RemoteException;
+    public Float getSumOfAmountByVoucherTypeAndStatus(Timestamp transDate, Integer customerId, String voucherType, String status)throws SQLException, RemoteException;
 
     ////////////////********************* TRANSECTION METHODS ********************************//////////////////
 
