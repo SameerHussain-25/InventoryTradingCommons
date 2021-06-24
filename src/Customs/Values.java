@@ -62,7 +62,7 @@ final public class Values {
 
         ////**** PRIVILEGES
         final public static String privilgeAdmin = "AD";                                    // ADMIN
-        final public static String privilgeTechnicalUser = "TD";                            // TECHNICAL USER
+        final public static String privilgeTechnicalUser = "TU";                            // TECHNICAL USER
         final public static String privilgeComputerOperator = "CO";                         // COMPUTER OPERATOR
         final public static String privilgeOtherUser = "OU";                                // OTHER USER
 
@@ -144,8 +144,9 @@ final public class Values {
         final public static String col1_contact_id = "contact_id";
         final public static String col2_customer_id = "customer_id";
         final public static String col3_contact_name = "contact_name";
-        final public static String col4_phone_no = "phone_no";
-        final public static String col5_email_address = "email_address";
+        final public static String col4_is_whatsapp_number = "is_whatsapp_number";
+        final public static String col5_phone_no = "phone_no";
+        final public static String col6_email_address = "email_address";
 
         final public static String SupplierTitle = "Supplier Contact";
         final public static String CustomerTitle = "Customer Contact";
@@ -369,7 +370,8 @@ final public class Values {
                 "CREATE TABLE `contact` (" +
                         "  `contact_id` int(11) NOT NULL AUTO_INCREMENT," +
                         "  `customer_id` int(11) DEFAULT NULL," +
-                        "  `contact_name` varchar(15) NOT NULL," +
+                        "  `contact_name` varchar(30) NOT NULL," +
+                        "  `is_whatsapp_number` tinyint(1) DEFAULT NULL,"+
                         "  `phone_no` varchar(15) NOT NULL," +
                         "  `email_address` varchar(30) DEFAULT NULL," +
                         "  PRIMARY KEY (`contact_id`)," +
@@ -519,6 +521,7 @@ final public class Values {
                         " contact_id INTEGER PRIMARY KEY," +
                         " customer_id INTEGER," +
                         " contact_name TEST," +
+                        " is_whatsapp_number TINYINT" +
                         " phone_no TEST," +
                         " email_address TEST," +
                         " )",

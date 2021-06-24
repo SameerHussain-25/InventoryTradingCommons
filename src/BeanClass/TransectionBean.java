@@ -7,11 +7,30 @@ public class TransectionBean implements Serializable {
 
     private Integer transectionId;
     private Timestamp transDate;
+
+    //    CUSTOMER BEAN
     private Integer customerId;
+    private String customerName;
+    private String firmName;
+    private String accountTitle;
+    private String accountNumber;
+    private String customerType;
+    private Integer cityId;
+    private String cityName;
+    private String address;
+    private Float openingBalance;
+
+    //    USER BEAN
     private Integer userId;
+    private String userName;
+    private String password;
+    private String privilege;
+
     private String custName;
     private Integer fromGodownId;
+    private String fromGodownName;
     private Integer toGodownId;
+    private String toGodownName;
     private String voucherType;
     private String paymentType;
     private Float packingExpence;
@@ -79,6 +98,89 @@ public class TransectionBean implements Serializable {
         this.customerId = customerId;
     }
 
+    public String getCustomerName() {
+        if(customerName != null) return customerName;
+        return "";
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getFirmName() {
+        if(firmName != null) return firmName;
+        return "";
+    }
+
+    public void setFirmName(String firmName) {
+        this.firmName = firmName;
+    }
+
+    public String getAccountTitle() {
+        if(accountTitle != null) return accountTitle;
+        return "";
+    }
+
+    public void setAccountTitle(String accountTitle) {
+        this.accountTitle = accountTitle;
+    }
+
+    public String getAccountNumber() {
+        if(accountNumber != null) return accountNumber;
+        return "";
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getCustomerType() {
+        if(customerType != null) return customerType;
+        return "";
+    }
+
+    public void setCustomerType(String customerType) {
+        this.customerType = customerType;
+    }
+
+    public Integer getCityId() {
+        if(cityId != null) return cityId;
+        return 0;
+    }
+
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
+    }
+
+    public String getCityName() {
+        if(cityName != null) return cityName;
+        return "";
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+
+    public String getAddress() {
+        if(address != null) return address;
+        return "";
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+    public Float getOpeningBalance() {
+        if(openingBalance != null) return openingBalance;
+        return Float.valueOf(0);
+    }
+
+    public void setOpeningBalance(Float openingBalance) {
+        this.openingBalance = openingBalance;
+    }
+
     public Integer getUserId() {
         if(userId != null) return userId;
         return 0;
@@ -88,6 +190,32 @@ public class TransectionBean implements Serializable {
         this.userId = userId;
     }
 
+    public String getUserName() {
+        if(userName != null) return userName;
+        return "";
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        if(password != null) return password;
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPrivilege() {
+        if(privilege != null) return privilege;
+        return privilege;
+    }
+
+    public void setPrivilege(String privilege) {
+        this.privilege = privilege;
+    }
     public String getCustName() {
         if(custName != null) return custName;
         return "";
@@ -106,6 +234,15 @@ public class TransectionBean implements Serializable {
         this.fromGodownId = fromGodownId;
     }
 
+    public String getFromGodownName() {
+        if(fromGodownName != null) return fromGodownName;
+        return "";
+    }
+
+    public void setFromGodownName(String fromGodownName) {
+        this.fromGodownName = fromGodownName;
+    }
+
     public Integer getToGodownId() {
         if(toGodownId != null) return toGodownId;
         return 0;
@@ -113,6 +250,15 @@ public class TransectionBean implements Serializable {
 
     public void setToGodownId(Integer toGodownId) {
         this.toGodownId = toGodownId;
+    }
+
+    public String getToGodownName() {
+        if(toGodownName != null) return toGodownName;
+        return "";
+    }
+
+    public void setToGodownName(String toGodownName) {
+        this.toGodownName = toGodownName;
     }
 
     public String getVoucherType() {

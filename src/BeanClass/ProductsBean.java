@@ -6,7 +6,11 @@ import java.sql.Timestamp;
 public class ProductsBean implements Serializable {
 
     private Integer productId;
+
+//  PRODUCT CATEGORY
     private Integer prodCatId;
+    private String prodCatName;
+
     private String prodName;
     private String prodBrandName;
     private Float openingRate;
@@ -16,7 +20,11 @@ public class ProductsBean implements Serializable {
     private Timestamp prodCreateDate;
     private Timestamp lastProdUpdate;
     private String updateBy;
+
+//  UNIT
     private Integer unitId;
+    private String unitName;
+
     private String remarks;
 
 
@@ -47,6 +55,15 @@ public class ProductsBean implements Serializable {
 
     public void setProdCatId(Integer prodCatId) {
         this.prodCatId = prodCatId;
+    }
+
+    public String getProdCatName() {
+        if(prodCatName != null) return prodCatName;
+        return "";
+    }
+
+    public void setProdCatName(String prodCatName) {
+        this.prodCatName = prodCatName;
     }
 
     public String getProdName() {
@@ -137,6 +154,15 @@ public class ProductsBean implements Serializable {
 
     public void setUnitId(Integer unitId) {
         this.unitId = unitId;
+    }
+
+    public String getUnitName() {
+        if(unitName != null) return unitName;
+        return "";
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
     }
 
     public String getRemarks() {

@@ -86,6 +86,9 @@ public interface DatabaseInterface extends Remote {
     public int deleteCity(int cityId)throws SQLException, RemoteException;
     /////////////////********************* GET
     public ArrayList getCity()throws SQLException, RemoteException;
+    /////////////////********************* GET CITY BY NAME
+    public ArrayList getCityByName(String cityName)throws  SQLException, RemoteException;
+    /////////////////********************* BEAN
     /////////////////********************* OVERIDE GET
     public CityBean getCity(int cityId)throws SQLException, RemoteException;
     /////////////////********************* OVERIDE GET
@@ -153,6 +156,8 @@ public interface DatabaseInterface extends Remote {
     public ArrayList getCustomerByCityName(String cityName)throws SQLException, RemoteException;
     ////////////////********************* GET BY CITY NAME & TYPE
     public ArrayList getCustomerByCityNameAndType(String cityName, String customerType)throws SQLException, RemoteException;
+    ////////////////********************* GET BY CUSTOMER NAME & CITY NAME
+    public ArrayList getCustomerByCustomerNameAndCityName(String customerName, String customerType, String cityName)throws SQLException, RemoteException;
 
     ////////////////********************* FILTER SEARCH
     public ArrayList getCustomerByFilterSearch(CustomersBean bean)throws SQLException, RemoteException;
@@ -271,6 +276,9 @@ public interface DatabaseInterface extends Remote {
 
     ////////////////********************* JOINING VALUES
 
+    ////////////////********************* GET BY PRODUCT CATEGORY ID ORDER BY
+    public ArrayList getProductsByProdCatIdOrderBy(ProductsBean bean, Integer godownId, boolean orderByBrandName, boolean orderByProductName)throws SQLException, RemoteException;
+
     ////////////////********************* GET PRODUCT IN GODOWN WITH CATEGORY
     /***
      *  product IN (all product in godown = ? and prod_cat_id = ?) and prod_cat_id = ?
@@ -298,33 +306,16 @@ public interface DatabaseInterface extends Remote {
     ////////////////********************* SINGLE VALUE
     ////////////////********************* GET PRODUCT NAME BY PRODUCT ID
     public String getProductNameByProductId(Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* GET PRODUCT ON HAND OPENING QTY BY PRODUCT ID
-    public int getProductOpeningQtyByProductId(Integer productId) throws SQLException, RemoteException;
     ////////////////********************* GET PRODUCT UNIT NAME BY PRODUCT ID
     public String getProductUnitNameByProductId(Integer productId) throws SQLException, RemoteException;
     ////////////////********************* GET PRODUCT BUYING RATE BY PRODUCT ID
     public Float getProductBuyingRateByProductId(Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* GET PRODUCT ALL QUANTITY BY CUSTOMER TYPE & PRODUCT ID
-    public Float getProductAllQuantityByCustomerTypeAndProductId(String customerType, Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* GET PRODUCT ALL QUANTITY BY VOUCHAR TYPE & PRODUCT ID
-    public Float getProductAllQuantityByVoucharTypeAndProductId(String voucharType, Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* GET PRODUCT ALL QUANTITY BY CUSTOMER TYPE & VOUCHAR TYPE & PRODUCT ID
-    public Float getProductAllQuantityByCustomerTypeAndVoucharTypeAndProductId(String customerType, String voucharType, Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* GET PRODUCT AVAILABLE QUANTITY BY PRODUCT ID
-    public Float getProductAllAvailableQuantityByProductId(Integer productId) throws SQLException, RemoteException;
 
-
-    ////////////////********************* WITH GODOWN ID
-    ////////////////********************* GET PRODUCT ALL QUANTITY BY CUSTOMER TYPE & GODOWN ID & PRODUCT ID
-    public Float getProductQuantityByCustomerTypeAndGodownIdAndProductId(String customerType, Integer godownId, Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* GET PRODUCT QUANTITY BY VOUCHAR TYPE & GODOWN ID & PRODUCT ID
-    public Float getProductQuantityByVoucharTypeAndGodownIdAndProductId(String voucharType, Integer godownId, Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* GET PRODUCT QUANTITY BY CUSTOMER TYPE & VOUCHAR TYPE & GODOWN ID & PRODUCT ID
-    public Float getProductQuantityByCustomerTypeAndVoucharTypeAndGodownIdAndProductId(String customerType, String voucharType, Integer godownId, Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* GET PRODUCT AVAILABLE QUANTITY BY GODOWN ID & PRODUCT ID
-    public Float getProductAvailableQuantityByGodownIdAndProductId(Integer godownId, Integer productId) throws SQLException, RemoteException;
-    ////////////////********************* PRODUCTS METHODS ********************************//////////////////
-
+    ////////////////********************* GET PRODUCT QUANTITY
+    ////////////////********************* GET PRODUCT AVAILABLE QUANTITY BY PRODUCT ID AND GODOWN ID
+    public Float getProductAllAvailableQuantityByProductIdAndGodownId(Integer productId, Integer godownId) throws SQLException, RemoteException;
+    ////////////////********************* GET PRODUCT ALL QUANTITY BY CUSTOMER TYPE, VOUCHER TYPE, STATUS, PRODUCT ID, GODOWN ID
+    public Float getProductQuantity(String customerType, String voucherType, String status, Integer productId, Integer godownId) throws SQLException, RemoteException;
 
 
 

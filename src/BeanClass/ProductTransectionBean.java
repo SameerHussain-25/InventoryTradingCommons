@@ -6,7 +6,10 @@ public class ProductTransectionBean implements Serializable {
 
     private Integer transectionId;
     private Integer productId;
+    private String prodName;
+    private String unitName;
     private Integer godownId;
+    private String godownName;
     private Float quantity;
     private Float unitPrice;
     private Float amount;
@@ -29,6 +32,24 @@ public class ProductTransectionBean implements Serializable {
         this.productId = productId;
     }
 
+    public String getProdName() {
+        if(prodName != null) return prodName;
+        return "";
+    }
+
+    public void setProdName(String prodName) {
+        this.prodName = prodName;
+    }
+
+    public String getUnitName() {
+        if(unitName != null) return unitName;
+        return "";
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
     public Integer getGodownId() {
         if(godownId != null) return godownId;
         return 0;
@@ -36,6 +57,15 @@ public class ProductTransectionBean implements Serializable {
 
     public void setGodownId(Integer godownId) {
         this.godownId = godownId;
+    }
+
+    public String getGodownName() {
+        if(godownName != null) return godownName;
+        return "";
+    }
+
+    public void setGodownName(String godownName) {
+        this.godownName = godownName;
     }
 
     public Float getQuantity() {

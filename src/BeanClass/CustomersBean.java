@@ -11,6 +11,7 @@ public class CustomersBean implements Serializable {
     private String accountNumber;
     private String customerType;
     private Integer cityId;
+    private String cityName;
     private String address;
     private Float openingBalance;
 
@@ -82,6 +83,16 @@ public class CustomersBean implements Serializable {
     public void setCityId(Integer cityId) {
         this.cityId = cityId;
     }
+
+    public String getCityName() {
+        if(cityName != null) return cityName;
+        return "";
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
 
     public String getAddress() {
         if(address != null) return address;

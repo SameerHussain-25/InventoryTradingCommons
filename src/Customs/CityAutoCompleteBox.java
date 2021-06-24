@@ -8,19 +8,19 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 
-public class AutoCompleteBox implements EventHandler<KeyEvent>{
+public class CityAutoCompleteBox implements EventHandler<KeyEvent>{
     private ComboBox comboBox;
     final private ObservableList data;
     private Integer sid;
 
-    public AutoCompleteBox(final ComboBox comboBox) {
+    public CityAutoCompleteBox(final ComboBox comboBox) {
         this.comboBox = comboBox;
         this.data = comboBox.getItems();
 
         this.doAutoCompleteBox();
     }
 
-    public AutoCompleteBox(final ComboBox comboBox, Integer sid) {
+    public CityAutoCompleteBox(final ComboBox comboBox, Integer sid) {
         this.comboBox = comboBox;
         this.data = comboBox.getItems();
         this.sid = sid;
@@ -73,7 +73,7 @@ public class AutoCompleteBox implements EventHandler<KeyEvent>{
         });
 
         this.comboBox.setOnKeyPressed(t -> comboBox.hide());
-        this.comboBox.setOnKeyReleased(AutoCompleteBox.this);
+        this.comboBox.setOnKeyReleased(CityAutoCompleteBox.this);
 
         if(this.sid!=null) this.comboBox.getSelectionModel().select(this.sid);
     }
